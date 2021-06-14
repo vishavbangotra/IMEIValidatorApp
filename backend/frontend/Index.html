@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <div class="page1 container-fluid vh-100">
+        <h1 id='main-head'>
+            IMEI Validator
+        </h1>
+        <h2 style="font-size: calc(2vw + 8px);">Instructions:-</h2>
+        <div class="container-sm w-50 p-3">
+          <ol class="Instructions-list">
+            <li>
+                Enter a 15 digit IMEI number.
+            </li>
+            <li>
+                Validator will return the number if it is valid.
+            </li>
+            <li>
+              If the IMEI number is invalid, the validator will return a digit with which you can replace the existing IMEI number's last digit to get a valid IMEI number.
+          </li>
+        </ol>
+        </div>
+        <a href="#IMEI-input">
+          <img id='down-arrow' src="{% static 'down-arrow.png' %}" alt="">
+        </a>
+        
+    </div>
+    <div class="page2 vh-100 container-fluid">
+      <div style="padding: 10% 0px 20px 0px;">
+          <label><h5>IMEI Number</h5></label>
+          <input type="number" id="IMEI-input" placeholder="Enter IMEI Number">
+          <button type="submit" id="submit"class="btn btn-outline-dark btn-lg">Submit</button>
+      </div>
+      <div class="container">
+        <p class="result">
+
+        </p>
+      </div>
+    </div>
+  
+    <script src="{% static 'index.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    {% endblock %}
