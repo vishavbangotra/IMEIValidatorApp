@@ -15,8 +15,10 @@ Including another URLconf
 """
 from api.views import HompageRender, IMEICheckView
 from django.urls import path
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', HompageRender),
     path('api/<int:number>/', IMEICheckView.as_view())
-]
+] + + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
