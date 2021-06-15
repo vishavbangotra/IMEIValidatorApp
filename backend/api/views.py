@@ -52,11 +52,7 @@ class IMEICheckView(APIView):
         if IMEICheck(number) == 0:
             return JsonResponse({"Status":"Invalid input. IMEI needs to be 15 digit number"})
         if IMEICheck(number) % 10 == 0:    
-            res = {
-                "Status": str(number) + " is Valid IMEI"
-            }
+            res = {"Status": str(number) + " is Valid IMEI"}
         else:
-            res = {
-                "Status":"Change the last digit of IMEI number to "+ str(IMEIBad(number, IMEICheck(number)))
-            }
+            res = {"Status":"Change the last digit of IMEI number to "+ str(IMEIBad(number, IMEICheck(number)))}
         return JsonResponse(res)
