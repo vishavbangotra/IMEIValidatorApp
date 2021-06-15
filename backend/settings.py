@@ -11,15 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
 import os
-import django_heroku
+
 from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bootcamp.settings")
-application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
 
-django_heroku.settings(locals())
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,7 +31,7 @@ SECRET_KEY = 'django-insecure-o96j0q$99lpj6ub1fkab4ep6p7o7s14$17!z@w@t)vhe6)e1_h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', 'imei-validator.herokuapp.com']
 
 
 # Application definition
